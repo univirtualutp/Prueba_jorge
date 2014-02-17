@@ -41,7 +41,7 @@ class ReporteController extends \BaseController {
 			Mail::send('emails.reporte', Input::all(), function($message)
 			{
 				$message->subject('Prueba Univirtual Convocatoria');
-    			$message->from('noreply@jorgesuarezch.com', 'No-reply');
+    			$message->from('noreply@localhost', 'No-reply');
 			    $message->to('jorgesuarezch@gmail.com');
 			    if (Input::hasFile('adjunto'))
 				{
