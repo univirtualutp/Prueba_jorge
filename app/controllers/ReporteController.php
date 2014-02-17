@@ -38,7 +38,7 @@ class ReporteController extends \BaseController {
 
 		if ($validation->passes())
 		{
-			
+
 		}
 
 		return Redirect::back()
@@ -46,7 +46,4 @@ class ReporteController extends \BaseController {
 			->with('errorMessage','Algo falló.')
 			->withInput();
 	}
-
-	}
-
 }
