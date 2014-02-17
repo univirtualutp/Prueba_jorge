@@ -40,9 +40,9 @@ class ReporteController extends \BaseController {
 		{
 			Mail::send('emails.reporte', Input::all(), function($message)
 			{
-				$message->subject('Prueba Univirtual Convocatoria');
+				$message->subject(Input::get('asunto'));
     			$message->from('noreply@localhost', 'No-reply');
-			    $message->to('jorgesuarezch@gmail.com');
+			    $message->to('soporteunivirtual@utp.edu.co');
 			    if (Input::hasFile('adjunto'))
 				{
 				    $message->attach(Input::file('adjunto')->getRealPath());
