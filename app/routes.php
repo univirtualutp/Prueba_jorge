@@ -12,7 +12,10 @@
 */
 
 Route::get('/', function()
-{
-	return View::make('hello');
+ {
+ 	return Redirect::toRoute('reporte.create');
 
 });
+
+Route::resource('reporte', 'ReporteController',
+               array('only' => array('create', 'store')));
