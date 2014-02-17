@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" ></script>
+	{{ HTML::script('assets/validate/validate.js'); }}
 </head>
 <body>
 
@@ -42,7 +43,7 @@
 		</div>
 
 	<div class="row">
-		{{ Form::open(array('route' => 'reporte.store', 'files' => true)) }}
+		{{ Form::open(array('route' => 'reporte.store', 'files' => true, 'name'=>'form', 'onsubmit'=>'return validate()')) }}
 	    
 		
 			<div class="form-group">
@@ -74,6 +75,7 @@
 		
 		{{ Form::close() }}
 	</div>
+</div>
 	
 	<script>
 	    $(document).on('ready',function(){
@@ -85,6 +87,34 @@
 
 	            <?php }
 	        ?>
+	        function validate(){
+	        	flag = true;
+		        var validator = new FormValidator('form', [{
+					    name: 'nombre',
+					    display: 'Campo requerido',    
+					    rules: 'required'
+					}, {
+					    name: 'apellidos',
+					    rules: 'required'
+					}, {
+					    name: 'email',
+					    rules: 'required'
+					}, {
+					    name: 'asunto',
+					    rules: 'required'
+					}, {
+					    name: 'descripcion',
+					    rules: 'required'
+					}], function(errors, event) {
+					    if (errors.length > 0) {
+					        alert("Todos los campos de texto son requeridos.");
+					        flag=false;
+
+					    }
+					});
+		        return flag;
+	        }
+	        
 	    });
 	</script>
 
