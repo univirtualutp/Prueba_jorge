@@ -3,6 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Reportes de usuarios</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" ></script>
 </head>
 <body>
 	{{ Form::open(array('route' => 'reporte.store')) }}
@@ -30,10 +33,22 @@
 			<label for="adjuntos">Adjuntos</label>
 			<input type="file" id="adjuntos[]" name="adjuntos[]">
 		</li>
+		<li>
+			Form::submit('Enviar');
+		</li>
 	</ul>
 
 	{{ Form::close() }}
-
+	
+	<script>
+	    $(document).on('ready',function(){
+	        <?php 
+	            foreach (array_keys($errors->toArray()) as $key => $value) { ?>
+	                $('label[for="{{ $value }}"]').parent().addClass('has-error');
+	            <?php }
+	        ?>
+	    });
+	</script>
 
 </body>
 </html>

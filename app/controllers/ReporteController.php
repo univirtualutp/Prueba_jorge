@@ -20,7 +20,14 @@ class ReporteController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$rules = array(
+			'nombre'=>'required|alpha',
+			'apellidos'=>'required|alpha',
+			'email'=>'required|email',
+			'asunto'=>'required',
+			'descripcion'=>'required',
+			'adjuntos'=>'size:4000',
+			);
 	}
 
 }
