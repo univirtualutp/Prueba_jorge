@@ -8,6 +8,38 @@
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" ></script>
 </head>
 <body>
+
+	<div class="container">
+		@if( Session::has('successMessage'))
+				<div class="alert alert-success alert-dismisable">
+					<span class="glyphicon glyphicon-ok"></span>
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			  		{{ Session::get('successMessage') }}
+				</div>
+			@endif
+			@if( Session::has('infoMessage'))
+				<div class="alert alert-info alert-dismisable">
+					<span class="glyphicon glyphicon-info-sign"></span>
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			  		{{ Session::get('infoMessage') }}
+				</div>
+			@endif
+			@if( Session::has('warningMessage'))
+				<div class="alert alert-warning alert-dismisable">
+					<span class="glyphicon glyphicon-warning-sign"></span>
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			  		{{ Session::get('warningMessage') }}
+				</div>
+			@endif
+			@if( Session::has('errorMessage'))
+				<div class="alert alert-danger alert-dismisable">
+					<span class="glyphicon glyphicon-exclamation-sign"></span>
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			  		{{ Session::get('errorMessage') }}
+				</div>
+			@endif
+		
+	</div>
 	{{ Form::open(array('route' => 'reporte.store')) }}
     
 	<ul>
@@ -34,7 +66,7 @@
 			<input type="file" id="adjuntos[]" name="adjuntos[]">
 		</li>
 		<li>
-			Form::submit('Enviar');
+			{{Form::submit('Enviar') }}
 		</li>
 	</ul>
 

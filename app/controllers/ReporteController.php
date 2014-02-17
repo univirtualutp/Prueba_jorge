@@ -28,6 +28,25 @@ class ReporteController extends \BaseController {
 			'descripcion'=>'required',
 			'adjuntos'=>'size:4000',
 			);
+		$messages = array(
+            'email' => 'Debe ser un email válido.',
+            'alpha' => 'Por favor ingresar solo caracteres alfabeticos.',
+            'required' => 'Campo requerido.',
+            'size' => 'El tamaño del archivo no puede ser superior a 4MB.'
+        );
+		$validation = Validator::make(Input::all(),$rules,$messages);
+
+		if ($validation->passes())
+		{
+			
+		}
+
+		return Redirect::back()
+			->withErrors($validation)
+			->with('errorMessage','Algo falló.')
+			->withInput();
+	}
+
 	}
 
 }
