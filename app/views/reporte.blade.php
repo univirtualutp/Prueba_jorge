@@ -10,67 +10,70 @@
 <body>
 
 	<div class="container">
-		@if( Session::has('successMessage'))
-				<div class="alert alert-success alert-dismisable">
-					<span class="glyphicon glyphicon-ok"></span>
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-			  		{{ Session::get('successMessage') }}
-				</div>
-			@endif
-			@if( Session::has('infoMessage'))
-				<div class="alert alert-info alert-dismisable">
-					<span class="glyphicon glyphicon-info-sign"></span>
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-			  		{{ Session::get('infoMessage') }}
-				</div>
-			@endif
-			@if( Session::has('warningMessage'))
-				<div class="alert alert-warning alert-dismisable">
-					<span class="glyphicon glyphicon-warning-sign"></span>
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-			  		{{ Session::get('warningMessage') }}
-				</div>
-			@endif
-			@if( Session::has('errorMessage'))
-				<div class="alert alert-danger alert-dismisable">
-					<span class="glyphicon glyphicon-exclamation-sign"></span>
-					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-			  		{{ Session::get('errorMessage') }}
-				</div>
-			@endif
-		
-	</div>
-	{{ Form::open(array('route' => 'reporte.store')) }}
-    
-	<ul>
-		<li><label for="nombre">Nombre</label>
-			<input type="text" id="nombre" name="nombre">
-		</li>
-		<li>
-			<label for="apellidos">Apellidos</label>
-			<input type="text" id="apellidos" name="apellidos"></li>
-		<li>
-			<label for="email">Email</label>
-			<input type="text" id="email" name="email">
-		</li>
-		<li>
-			<label for="asunto">Asunto</label>
-			<input type="text" id="asunto" name="asunto">
-		</li>
-		<li>
-			<label for="descripcion">Descripción</label>
-			<textarea name="descripcion" id="descripcion" cols="30" rows="10"></textarea>
-		</li>
-		<li>
-			<label for="adjuntos">Adjuntos</label>
-			<input type="file" id="adjuntos[]" name="adjuntos[]">
-		</li>
-		<li>
-			{{Form::submit('Enviar') }}
-		</li>
-	</ul>
+		<div class="row">
+			@if( Session::has('successMessage'))
+					<div class="alert alert-success alert-dismisable">
+						<span class="glyphicon glyphicon-ok"></span>
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				  		{{ Session::get('successMessage') }}
+					</div>
+				@endif
+				@if( Session::has('infoMessage'))
+					<div class="alert alert-info alert-dismisable">
+						<span class="glyphicon glyphicon-info-sign"></span>
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				  		{{ Session::get('infoMessage') }}
+					</div>
+				@endif
+				@if( Session::has('warningMessage'))
+					<div class="alert alert-warning alert-dismisable">
+						<span class="glyphicon glyphicon-warning-sign"></span>
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				  		{{ Session::get('warningMessage') }}
+					</div>
+				@endif
+				@if( Session::has('errorMessage'))
+					<div class="alert alert-danger alert-dismisable">
+						<span class="glyphicon glyphicon-exclamation-sign"></span>
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				  		{{ Session::get('errorMessage') }}
+					</div>
+				@endif
+		</div>
 
-	{{ Form::close() }}
+	<div class="row">
+		{{ Form::open(array('route' => 'reporte.store')) }}
+	    
+		
+			<div class="form-group">
+				<label class="control-label" for="nombre">Nombre</label>
+				<input type="text" id="nombre" name="nombre">
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="apellidos">Apellidos</label>
+				<input type="text" id="apellidos" name="apellidos"></div>
+			<div class="form-group">
+				<label class="control-label" for="email">Email</label>
+				<input type="text" id="email" name="email">
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="asunto">Asunto</label>
+				<input type="text" id="asunto" name="asunto">
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="descripcion">Descripción</label>
+				<textarea name="descripcion" id="descripcion" cols="30" rows="10"></textarea>
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="adjuntos">Adjuntos</label>
+				<input type="file" id="adjuntos[]" name="adjuntos[]">
+			</div>
+			<div class="form-group">
+				{{Form::submit('Enviar') }}
+			</div>
+		
+		{{ Form::close() }}
+	</div>
 	
 	<script>
 	    $(document).on('ready',function(){
