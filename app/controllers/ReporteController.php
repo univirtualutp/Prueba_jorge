@@ -38,12 +38,24 @@ class ReporteController extends \BaseController {
 
 		if ($validation->passes())
 		{
+			Mail::send('emails.reporte', Input::all(), function($message)
+			{
+			    $message->to('jorgesuarezch@gmail.com');
+			    if (Input::hasFile('adjunto'))
+				{
+				    $message->attach(Input::file('adjunto')->getRealPath());
+				}
+			});
 
+
+			return Redirect::back()
+			->with('successMessage','Su solicitud ha sido creada satisfactoriamente.');
+			
 		}
 
 		return Redirect::back()
 			->withErrors($validation)
-			->with('errorMessage','Algo falló.')
+			->with('errorMessage','Algo ha fallado, cambia algunas cosas e intenta de nuevo.')
 			->withInput();
 	}
 }

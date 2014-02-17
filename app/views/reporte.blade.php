@@ -65,8 +65,8 @@
 				<textarea name="descripcion" id="descripcion" cols="30" rows="10"></textarea>
 			</div>
 			<div class="form-group">
-				<label class="control-label" for="adjuntos">Adjuntos</label>
-				<input type="file" id="adjuntos[]" name="adjuntos[]">
+				<label class="control-label" for="adjunto">Adjunto</label>
+				<input type="file" id="adjunto" name="adjunto">
 			</div>
 			<div class="form-group">
 				{{Form::submit('Enviar') }}
