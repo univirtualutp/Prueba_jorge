@@ -26,13 +26,13 @@ class ReporteController extends \BaseController {
 			'email'=>'required|email',
 			'asunto'=>'required',
 			'descripcion'=>'required',
-			'adjunto'=>'size:4000',
+			'adjunto'=>'max:4000',
 			);
 		$messages = array(
             'email' => 'Debe ser un email válido.',
             'alpha' => 'Por favor ingresar solo caracteres alfabeticos.',
             'required' => 'Campo requerido.',
-            'size' => 'El tamaño del archivo no puede ser superior a 4MB.'
+            'max' => 'El tamaño del archivo no puede ser superior a 4MB.'
         );
 		$validation = Validator::make(Input::all(),$rules,$messages);
 

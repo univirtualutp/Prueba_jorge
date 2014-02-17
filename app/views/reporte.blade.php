@@ -79,7 +79,10 @@
 	    $(document).on('ready',function(){
 	        <?php 
 	            foreach (array_keys($errors->toArray()) as $key => $value) { ?>
-	                $('label[for="{{ $value }}"]').parent().addClass('has-error');
+	                $('label[for="{{ $value }}"]').parent().addClass('has-error').append(
+	                	'<span class="help-block">{{ $errors->first($value) }}</span>'
+	                	);
+
 	            <?php }
 	        ?>
 	    });
