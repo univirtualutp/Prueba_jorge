@@ -42,7 +42,7 @@
 		</div>
 
 	<div class="row">
-		{{ Form::open(array('route' => 'reporte.store')) }}
+		{{ Form::open(array('route' => 'reporte.store', 'files' => true)) }}
 	    
 		
 			<div class="form-group">

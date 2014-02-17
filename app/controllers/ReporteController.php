@@ -26,7 +26,7 @@ class ReporteController extends \BaseController {
 			'email'=>'required|email',
 			'asunto'=>'required',
 			'descripcion'=>'required',
-			'adjuntos'=>'size:4000',
+			'adjunto'=>'size:4000',
 			);
 		$messages = array(
             'email' => 'Debe ser un email válido.',
