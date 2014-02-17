@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => "prueba-jorge@univirtual.edu.co", 'name' => 'Prueba Jorge'),
+	'from' => array('address' => "prueba-jorge@jorgesuarezch.com", 'name' => 'Prueba Jorge'),
 
 	/*
 	|--------------------------------------------------------------------------
